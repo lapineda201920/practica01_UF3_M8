@@ -1,4 +1,17 @@
-const io = require('socket.io')(3000)
+const PORT = process.env.PORT || 3000;
+const express = require('express');
+const app = express();
+
+const http = require('htpp');
+const server = http.Server(app);
+
+app.use(express.static('client'));
+
+server.listen(PORT, function(){
+  console.log("El xat funciona")
+});
+
+const io = require('socket.io')(server);
 
 const users = {}
 
